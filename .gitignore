@@ -1,4 +1,5 @@
 .vscode
-Input.java
+.idea
+*.iml
 
-Questions/
+out/
