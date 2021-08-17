@@ -9,7 +9,7 @@ public class ProductExceptSelf {
         System.out.println(ans);
     }
 
-    static int[] productExceptSelp(int[] nums) {
+    public static int[] productExceptSelp(int[] nums) {
         int[] right = new int[nums.length];
         int prod = 1;
         for (int i = nums.length-1; i >= 0 ; i--) {
