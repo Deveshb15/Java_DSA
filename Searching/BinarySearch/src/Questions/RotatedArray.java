@@ -76,11 +76,24 @@ public class RotatedArray {
             if(mid > start && nums[mid] < nums[mid-1]) {
                 return mid-1;
             }
-            if(nums[start] > nums[mid]) {
-                end = mid-1;
+
+            if(nums[start]==nums[mid] && nums[mid]==nums[end]) {
+
+                if(nums[start] > nums[start + 1]) {
+                    return start;
+                }
+                start++;
+
+                if(nums[end] < nums[end-1]) {
+                    return end-1;
+                }
+                end--;
+            }
+            else if(nums[start] < nums[mid] || (nums[start] == nums[mid] && nums[mid] > nums[end])) {
+                start = mid + 1;
             }
             else {
-                start = mid+1;
+                end = mid - 1;
             }
         }
         return -1;
