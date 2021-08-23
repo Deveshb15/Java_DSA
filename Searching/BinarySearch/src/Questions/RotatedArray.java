@@ -2,13 +2,13 @@ package Questions;
 
 public class RotatedArray {
     public static void main(String[] args) {
-        int[] arr = {4, 5, 6, 7, 0, 1, 2};
+        int[] arr = {1, 1, 3};
         int target = 0;
 
         System.out.println(search(arr, target));
     }
     static int search(int[] nums, int target) {
-        int pivot = findPivot(nums);
+        int pivot = findPivotWithDuplicates(nums);
 
         if(pivot == -1){
             return binarySearch(nums, target, 0, nums.length-1);
@@ -79,12 +79,12 @@ public class RotatedArray {
 
             if(nums[start]==nums[mid] && nums[mid]==nums[end]) {
 
-                if(nums[start] > nums[start + 1]) {
+                if(start < end && nums[start] > nums[start + 1]) {
                     return start;
                 }
                 start++;
 
-                if(nums[end] < nums[end-1]) {
+                if(end > start &&nums[end] < nums[end-1]) {
                     return end-1;
                 }
                 end--;
